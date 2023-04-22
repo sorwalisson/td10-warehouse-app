@@ -5,7 +5,7 @@ describe "Users visits the homepage" do
     # Arrange
 
     #Act
-    visit("/")
+    visit(root_path)
 
     # Assert
     expect(page).to have_content('Galpões & Estoque')
@@ -17,7 +17,7 @@ describe "Users visits the homepage" do
     Warehouse.create(name: 'Rio', code: "SDU", city: "Rio de Janeiro", area: 60_000)
     Warehouse.create(name: 'Maceio', code: "MCZ", city: "Maceio", area: 50_000)
     #act
-    visit("/")
+    visit(root_path)
     #assert
     expect(page).not_to have_content('Não existem galpões cadastrados')
     expect(page).to have_content('Rio')
@@ -35,7 +35,7 @@ describe "Users visits the homepage" do
     #arrange
 
     #act
-    visit('/')
+    visit(root_path)
     #assert
     expect(page).to have_content('Não existem galpões cadastrados')
   end
