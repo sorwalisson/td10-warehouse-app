@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Galpões & Estoque</h1>
+    </header>
+    <div>
+    <%= flash[:notice] %>
+  </div>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
