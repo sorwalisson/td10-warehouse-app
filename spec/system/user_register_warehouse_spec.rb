@@ -31,7 +31,7 @@ describe 'usuario cadastra galpão' do
     fill_in 'Endereço', with: "Aeroporto Zumbi dos Palmares, 100"
     fill_in 'CEP', with: "57000-000"
     fill_in 'Descrição', with: 'Galpão do Aeroporto Zumbi dos Palmares, destinado à encomendas para o estado de Alagoas'
-    click_on "Criar Galpão"
+    click_on "Enviar"
     #assert
     expect(current_path).to eq root_path
     expect(page).to have_content 'Galpão cadastrado com sucesso'
@@ -50,7 +50,7 @@ describe 'usuario cadastra galpão' do
     click_on 'Cadastrar Galpão'
     fill_in 'Nome', with: ''
     fill_in 'Código', with: ""
-    click_on 'Criar Galpão'
+    click_on 'Enviar'
 
     #assert
     expect(page).to have_content 'Galpão não cadastrado'
