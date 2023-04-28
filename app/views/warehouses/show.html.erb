@@ -10,3 +10,4 @@
 
 <p><%= link_to 'Editar', edit_warehouse_path(id: @warehouse.id) %></p>
 <p><%= link_to "Voltar", root_path %></p>
+<p><%= button_to "Remover", warehouse_path(id: @warehouse.id), method: :delete %></p>

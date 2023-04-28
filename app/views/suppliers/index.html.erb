@@ -1,0 +1,19 @@
+<section id = "suppliers">
+  <h2>Fornecedores</h2>
+  <p> <%= link_to 'Registrar Fornecedor', new_supplier_path %> </p>
+  <% @suppliers.each do |s| %>
+    <div>
+      <h3><%= link_to(s.corporate_name, supplier_path(id: s.id)) %></h3>
+      <dl>
+        <dt>Nome Fantasia:</dt>
+        <dd><%= s.brand_name %></dd>
+        <dt>CNPJ:</dt>
+        <dd><%= s.registration_number %></dt>
+      </dl>
+    </div>
+  <%end%>
+
+  <% if @suppliers.empty? %>
+    <p> Não há forncedores cadastrados</p>
+  <%end%>
+</section>

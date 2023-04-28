@@ -59,6 +59,6 @@ describe 'usuario edita um galpão' do
 
     #assert
 
-    expect(page).to have_content 'Não foi possível atualizae galpão'
+    expect(page).to have_content 'Não foi possível atualizar galpão'
   end
 end
