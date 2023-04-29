@@ -17,14 +17,14 @@ describe 'usuário cadastra modelo de produto' do
     fill_in 'Largura', with: 70
     fill_in 'Altura', with: 45
     fill_in 'Profundidade', with: 10
-    fill_in 'SKU', with: "TV32-SAMSU-XPT090"
+    fill_in 'SKU', with: "TV32PL-SAMSUG-XPT090"
     select 'Samsung', from: "Fornecedor"
     click_on 'Enviar'
 
     #assert
     expect(page).to have_content 'Modelo de produto cadastrado com sucesso.'
     expect(page).to have_content 'Produto: TV 32'
-    expect(page).to have_content 'SKU: TV32-SAMSU-XPT090'
+    expect(page).to have_content 'SKU: TV32PL-SAMSUG-XPT090'
     expect(page).to have_content 'Fornecedor: Samsung'
     expect(page).to have_content 'Peso: 8000g'
     expect(page).to have_content 'Dimensões: 70cm x 45cm x 10cm'
