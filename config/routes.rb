@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
  resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]
  resources :suppliers
+ resources :product_models
 end
