@@ -64,11 +64,45 @@ RSpec.describe ProductModel, type: :model do
       it 'SKU must be unique' do
         supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
                                     full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
-        product_model = ProductModel.new(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10, sku: "TV3222-XM142-SAMTV1", supplier_id: supplier.id)
-        product_model = ProductModel.new(name: 'TV 40', weight: 9000, width: 30, height: 45, depth: 10, sku: "TV3222-XM142-SAMTV1", supplier_id: supplier.id)
+        product_model = ProductModel.create!(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+        second_product_model = ProductModel.new(name: 'TV 40', weight: 9000, width: 30, height: 45, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
 
-        expect(product_model.valid?).to be_falsy
+        expect(second_product_model.valid?).to be_falsy
       end
     end
+
+    context 'validates comparison' do
+      it 'peso deve ser maior que 0' do
+        supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
+                                    full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+        product_model = ProductModel.new(name: 'TV 32', width: 70, height: 45, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+        
+        expect(product_model.valid?).to be_falsy
+      end
+
+      it 'largura deve ser maior que 0' do
+        supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
+                                    full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+        product_model = ProductModel.new(name: 'TV 32', weight: 8000, height: 45, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+        
+        expect(product_model.valid?).to be_falsy
+      end
+
+      it 'altura deve ser maior que 0' do
+        supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
+                                    full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+        product_model = ProductModel.new(name: 'TV 32', weight: 8000, width: 70, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+        
+        expect(product_model.valid?).to be_falsy
+      end
+
+      it 'profundidade deve ser maior que 0' do
+        supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
+                                    full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+        product_model = ProductModel.new(name: 'TV 32', weight: 8000, width: 70, height: 45, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+        
+        expect(product_model.valid?).to be_falsy
+      end
+    end        
   end
 end
