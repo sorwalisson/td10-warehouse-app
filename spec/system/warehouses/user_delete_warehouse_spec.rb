@@ -5,7 +5,10 @@ describe 'user remove um galpão' do
     #arrange
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
       cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Aeroporto SP'
     click_on 'Remover'
@@ -22,8 +25,10 @@ describe 'user remove um galpão' do
       cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
     second_warehouse =  Warehouse.create(name: 'Maceio', code: "MCZ", city: "Maceio", area: 50_000, address: "Avenida Zumbi dos Palmares, 50", 
       cep: "57000-000", description: "Galpão do aeroporto zumbi dos palmares")
-
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Aeroporto SP'
     click_on 'Remover'

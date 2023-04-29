@@ -7,8 +7,9 @@ describe 'usuário cadastra modelo de produto' do
                                 full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
     second_supplier = Supplier.create!(corporate_name: 'LG do Brasil LTDA', brand_name: 'LG', registration_number: "987654321000", 
                                        full_address: "Avenida Paulista, 40", city: "São Paulo", state: "SP", email: "LG@sac.com.br")
-
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Modelos de produtos'
     click_on 'Registrar modelo de produto'
@@ -35,12 +36,12 @@ describe 'usuário cadastra modelo de produto' do
                                 full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
     second_supplier = Supplier.create!(corporate_name: 'LG do Brasil LTDA', brand_name: 'LG', registration_number: "987654321000", 
                                 full_address: "Avenida Paulista, 40", city: "São Paulo", state: "SP", email: "LG@sac.com.br")
-    
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+
+    login_as(new_user)
     visit root_path
     click_on 'Modelos de produtos'
     click_on 'Registrar modelo de produto'
-    
-
     fill_in 'Nome', with: ''
     fill_in 'Peso', with: ""
     select 'Samsung', from: "Fornecedor"

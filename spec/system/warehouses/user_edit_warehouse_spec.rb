@@ -4,8 +4,11 @@ describe 'usuario edita um galpão' do
   it 'a partir da pagina de detalhes de um galpão' do
     #arrange
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
-                     cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+                                  cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Aeroporto SP'
     click_on 'Editar'
@@ -23,8 +26,11 @@ describe 'usuario edita um galpão' do
 
   it 'usuario edita informações e clicka em enviar, e edita com sucesso' do
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
-      cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+                                  cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Aeroporto SP'
     click_on 'Editar'
@@ -46,8 +52,11 @@ describe 'usuario edita um galpão' do
 
   it 'usuario tenta editar galpão, mas sem sucesso devido a falta de attributos obrigatórios' do
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
-      cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+                                  cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit root_path
     click_on 'Aeroporto SP'
     click_on 'Editar'

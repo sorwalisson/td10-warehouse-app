@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'usuario registra supplier' do
   it 'usuario clicka em registrar fornecedor' do
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
+    login_as(new_user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'
@@ -19,6 +22,9 @@ describe 'usuario registra supplier' do
   end
 
   it 'com sucesso' do
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
+    login_as(new_user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'
@@ -42,6 +48,9 @@ describe 'usuario registra supplier' do
   end
 
   it 'com dados incompletos' do
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
+    login_as(new_user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'

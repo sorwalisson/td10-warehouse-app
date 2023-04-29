@@ -3,8 +3,10 @@ require 'rails_helper'
 describe "Users visits the homepage" do
   it "and see the name of the app" do
     # Arrange
-
-    #Act
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
+    #act
+    login_as(new_user)
     visit(root_path)
 
     # Assert
@@ -16,7 +18,10 @@ describe "Users visits the homepage" do
     #arrange
     Warehouse.create(name: 'Rio', code: "SDU", city: "Rio de Janeiro", area: 60_000, address: "Avenida do aeroporto, 1000", cep: '20000-000', description: "Galpão do aeroporto santos dumont")
     Warehouse.create(name: 'Maceio', code: "MCZ", city: "Maceio", area: 50_000, address: "Avenida Zumbi dos Palmares, 50", cep: "57000-000", description: "Galpão do aeroporto zumbi dos palmares")
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit(root_path)
     #assert
     expect(page).not_to have_content('Não existem galpões cadastrados')
@@ -33,8 +38,10 @@ describe "Users visits the homepage" do
 
   it 'e não existe galpões cadastrados' do
     #arrange
-
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
     #act
+    login_as(new_user)
     visit(root_path)
     #assert
     expect(page).to have_content('Não existem galpões cadastrados')

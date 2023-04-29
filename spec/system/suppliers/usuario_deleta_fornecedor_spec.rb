@@ -4,7 +4,9 @@ describe 'usuário exclui fornecedor' do
   it 'com sucesso' do
     supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
-
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+    
+    login_as(new_user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'
