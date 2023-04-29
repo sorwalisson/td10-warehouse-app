@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'usuario vê detalhes de um fornecedor' do
   it 'usuario clicka no nome do fornecedor e vê detalhes' do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path
@@ -14,7 +14,7 @@ describe 'usuario vê detalhes de um fornecedor' do
     expect(current_path).to eq supplier_path(id: supplier.id)
     expect(page).to have_content "Bugigangas SA"
     expect(page).to have_content "Nome Fantasia: Play Bugigangas"
-    expect(page).to have_content "CNPJ: 35.006.222/0001-57"
+    expect(page).to have_content "CNPJ: 123456789000"
     expect(page).to have_content "Endereço: Avenida Tomaz Espindola, 10"
     expect(page).to have_content "Cidade: Maceió"
     expect(page).to have_content "Estado: AL"
@@ -22,7 +22,7 @@ describe 'usuario vê detalhes de um fornecedor' do
   end
 
   it 'e clicka em voltar para pagina de fornecedores' do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path
@@ -36,7 +36,7 @@ describe 'usuario vê detalhes de um fornecedor' do
   end
 
   it 'e clicka em voltar para tela inicial' do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path

@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe Supplier, type: :model do
   describe 'validates' do
     it 'deve retornar falso, quando corporate name está em branco' do
-      supplier = Supplier.new(corporate_name: "", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+      supplier = Supplier.new(corporate_name: "", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                               city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
       expect(supplier.valid?).to be_falsy
     end
     
     it 'deve retornar falso, quando brand_name está em branco' do
-      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                               city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
       expect(supplier.valid?).to be_falsy
     end
@@ -21,35 +21,53 @@ RSpec.describe Supplier, type: :model do
     end
     
     it 'deve retornar falso, quando full_addres está em branco' do
-      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "",
+      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "",
                               city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
       expect(supplier.valid?).to be_falsy
     end
 
     it 'deve retornar falso, quando a cidade está em branco' do
-      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                               city: "", state: "AL", email: "Bugiganas_SA@sac.com.br")
       expect(supplier.valid?).to be_falsy
     end
 
     it 'deve retornar falso quando o estado está em branco' do
-      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                               city: "Maceió", state: "", email: "Bugiganas_SA@sac.com.br")
       expect(supplier.valid?).to be_falsy
     end
 
     it 'deve retornar falso quando o email está em branco' do
-      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+      supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                               city: "Maceió", state: "AL", email: "")
       expect(supplier.valid?).to be_falsy
     end
 
     context 'state length' do
       it 'should return false, when the state length is not 2' do
-        supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
-                                city: "Maceió", state: "ALAGOAS", email: "")
+        supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
+                                city: "Maceió", state: "ALAGOAS", email: "Bugiganas_SA@sac.com.br")
         expect(supplier.valid?).to be_falsy
-        end
       end
+    end
+
+    context 'CNPJ length' do
+      it 'deve retornar false se o CNPJ length n for 12' do
+        supplier = Supplier.new(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35007", full_address: "Avenida Tomaz Espindola, 10",
+                                city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
+        expect(supplier.valid?).to be_falsy
+      end
+    end
+
+    context 'CNPJ uniqueness' do
+      it 'deve retornar falso se o CNPJ n for único' do
+        supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "350062220001", full_address: "Avenida Tomaz Espindola, 10",
+          city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
+        second_supplier = Supplier.new(corporate_name: "Bugi SA", brand_name: "Bugigangas", registration_number: "350062220001", full_address: "Avenida Amelia Rosa, 10",
+            city: "Maceió", state: "AL", email: "Bugiganas@sac.com.br")
+        expect(second_supplier.valid?).to be_falsy
+      end
+    end
   end 
 end

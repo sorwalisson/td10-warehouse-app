@@ -18,7 +18,7 @@ describe 'Usuário vê modelos de produtos' do
 
   it 'com sucesso' do
     #arrange
-    supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'SAMSUNG', registration_number: "34.006.033/0001-57", 
+    supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'SAMSUNG', registration_number: "123456789000", 
                                 full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
     product1 = ProductModel.create!(name: "TV 32", weight: 8000, width: 70, height: 45, depth: 10, 
                                     sku: "TV32PL-SAMSUG-XPT090", supplier_id: supplier.id)

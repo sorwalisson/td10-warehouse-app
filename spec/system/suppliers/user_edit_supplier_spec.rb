@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe 'usuario edita um fornecedor' do
   it 'usuario clicka em editar fornecedor, e vê formulário com informações a serem editadas' do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path
@@ -19,12 +19,12 @@ describe 'usuario edita um fornecedor' do
     expect(page).to have_field("Cidade", with: "Maceió")
     expect(page).to have_field("Estado", with: "AL")
     expect(page).to have_field("Endereço", with: 'Avenida Tomaz Espindola, 10')
-    expect(page).to have_field("CNPJ", with: '35.006.222/0001-57')
+    expect(page).to have_field("CNPJ", with: '123456789000')
     expect(page).to have_field("Email", with: 'Bugiganas_SA@sac.com.br')
   end
 
   it 'com sucesso' do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path
@@ -44,7 +44,7 @@ describe 'usuario edita um fornecedor' do
   end
 
   it "com informações incompletas" do
-    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "35.006.222/0001-57", full_address: "Avenida Tomaz Espindola, 10",
+    supplier = Supplier.create!(corporate_name: "Bugigangas SA", brand_name: "Play Bugigangas", registration_number: "123456789000", full_address: "Avenida Tomaz Espindola, 10",
                                 city: "Maceió", state: "AL", email: "Bugiganas_SA@sac.com.br")
 
     visit root_path

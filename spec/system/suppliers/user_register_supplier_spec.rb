@@ -27,7 +27,7 @@ describe 'usuario registra supplier' do
 
     fill_in 'Razão Social', with: "Bugigangas SA"
     fill_in 'Nome Fantasia', with: "Play Bugigangas"
-    fill_in 'CNPJ', with: '35.006.222/0001-57'
+    fill_in 'CNPJ', with: '123456789000'
     fill_in 'Endereço', with: "Avenida Tomaz Espindola, 10"
     fill_in 'Cidade', with: "Maceió"
     fill_in 'Estado', with: 'AL'
@@ -38,7 +38,7 @@ describe 'usuario registra supplier' do
     expect(page).to have_content 'Fornecedor cadastrado com sucesso.'
     expect(page).to have_content 'Bugigangas SA'
     expect(page).to have_content 'Play Bugigangas'
-    expect(page).to have_content '35.006.222/0001-57'
+    expect(page).to have_content '123456789000'
   end
 
   it 'com dados incompletos' do
