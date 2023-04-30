@@ -1,17 +1,12 @@
-<h1><%= I18n.translate("Register")%> <%=Order.model_name.human %></h1>
+<h2><%= I18n.translate("Register")%> <%=Order.model_name.human %></h2>
 
-<%= form_with(model: @order) do |f| %>
-  <div>
-    <%= f.label :warehouse_id %>
-    <%= f.collection_select :warehouse_id, @warehouses, :id, :full_description %>
-  </div>
-  <div>
-    <%= f.label :supplier_id %>
-    <%= f.collection_select :supplier_id, @suppliers, :id, :full_description %>
-  </div>
-  <div>
-    <%= f.label :estimated_delivery_date %>
-    <%= f.date_field :estimated_delivery_date %>
-  </div>
-  <%= f.submit I18n.translate('record')%>
-<%end%>
+<% if @order.errors.any? %>
+  <p><%= I18n.t('verify_erros_form')%>: </p>
+  <ul>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <%end %>
+  </ul>
+<% end %>
+
+<%= render 'form' %>

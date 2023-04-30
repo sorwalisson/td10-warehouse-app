@@ -17,6 +17,8 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to @order, notice: I18n.t('order_saved')
     else
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
       flash.now[:notice] = I18n.t('order_not_saved')
       render 'new'
     end
