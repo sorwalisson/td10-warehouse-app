@@ -9,7 +9,7 @@ describe 'usuario cadastra galpão' do
     login_as(new_user)
     visit(root_path)
     visit root_path
-    click_on 'Cadastrar Galpão'
+    click_on 'Registrar Galpão'
     #assert
     expect(page).to have_field("Nome")
     expect(page).to have_field("Código")
@@ -27,7 +27,7 @@ describe 'usuario cadastra galpão' do
     #act
     login_as(new_user)
     visit root_path
-    click_on "Cadastrar Galpão"
+    click_on "Registrar Galpão"
     fill_in 'Nome', with: "Maceió"
     fill_in 'Código', with: "MCZ"
     fill_in 'Cidade', with: "Maceió"
@@ -52,7 +52,7 @@ describe 'usuario cadastra galpão' do
     #act
     login_as(new_user)
     visit root_path
-    click_on 'Cadastrar Galpão'
+    click_on 'Registrar Galpão'
     fill_in 'Nome', with: ''
     fill_in 'Código', with: ""
     click_on 'Enviar'

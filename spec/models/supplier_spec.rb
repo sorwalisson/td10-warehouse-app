@@ -69,5 +69,20 @@ RSpec.describe Supplier, type: :model do
         expect(second_supplier.valid?).to be_falsy
       end
     end
-  end 
+  end
+  
+  describe 'full description' do
+    it 'deve retonar razão social mais nome fantasia' do
+      #arrange
+      supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'SAMSUNG', registration_number: "123456789000", 
+                                  full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+      
+      #act
+      result = supplier.full_description
+
+      #assert
+
+      expect(result).to eq('Samsung korea LTDA - SAMSUNG')
+    end
+  end
 end

@@ -16,7 +16,7 @@ describe 'Usuario se autentica' do
     expect(page).to have_button 'Sair'
     expect(page).to_not have_link 'Entrar'
     within('nav') do
-      expect(page).to have_content "sorwalisson@email.com"
+      expect(page).to have_content "Walisson - sorwalisson@email.com"
     end
     expect(page).to have_content 'Login efetuado com sucesso.'
   end

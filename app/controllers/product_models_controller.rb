@@ -17,11 +17,11 @@ class ProductModelsController < ApplicationController
     @product_model = ProductModel.new(product_model_params)
 
     if @product_model.save
-      flash[:notice] = "Modelo de produto cadastrado com sucesso."
+      flash[:notice] = I18n.t('product_model_saved')
       redirect_to product_model_path(id: @product_model.id)
     else
       @suppliers = Supplier.all
-      flash.now[:notice] = "Não foi possível cadastrar modelo de produto."
+      flash.now[:notice] = I18n.t('product_model_not_saved')
       render 'new'
     end
   end

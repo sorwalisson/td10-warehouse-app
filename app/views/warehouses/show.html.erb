@@ -1,13 +1,13 @@
-<h1>Galpão <%= @warehouse.code %> </h1>
+<h1><%= Warehouse.model_name.human %> <%= @warehouse.code %> </h1>
 <div>
-  <strong>Nome: </strong><%= @warehouse.name%>
-  <strong>Cidade: </strong><%= @warehouse.city %>
-  <strong>Área: </strong><%= "#{@warehouse.area} m²" %>
-  <strong>Endereço: </strong><%= "#{@warehouse.address} CEP: #{@warehouse.cep}" %>
-  <strong>Descrição: </strong><%= @warehouse.description %>
+  <strong><%= Warehouse.human_attribute_name(:name)%>: </strong><%= @warehouse.name%>
+  <strong><%= Warehouse.human_attribute_name(:city)%>: </strong><%= @warehouse.city %>
+  <strong><%= Warehouse.human_attribute_name(:area)%>: </strong><%= "#{@warehouse.area} m²" %>
+  <strong><%= Warehouse.human_attribute_name(:address)%>: </strong><%= "#{@warehouse.address} CEP: #{@warehouse.cep}" %>
+  <strong><%= Warehouse.human_attribute_name(:description)%>: </strong><%= @warehouse.description %>
 </div>
 
 
-<p><%= link_to 'Editar', edit_warehouse_path(id: @warehouse.id) %></p>
-<p><%= link_to "Voltar", root_path %></p>
-<p><%= button_to "Remover", warehouse_path(id: @warehouse.id), method: :delete %></p>
+<p><%= link_to I18n.t('edit'), edit_warehouse_path(id: @warehouse.id) %></p>
+<p><%= link_to I18n.t('back_root'), root_path %></p>
+<p><%= button_to I18n.t('delete'), warehouse_path(id: @warehouse.id), method: :delete %></p>

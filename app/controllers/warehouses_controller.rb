@@ -11,10 +11,10 @@ class WarehousesController < ApplicationController
   def create
     @warehouse = Warehouse.new(warehouse_params)
     if @warehouse.save()
-      flash[:notice] = "Galpão cadastrado com sucesso"
+      flash[:notice] = I18n.translate('warehouse_saved')
       redirect_to root_path
     else
-      flash.now[:notice] = "Galpão não cadastrado"
+      flash.now[:notice] = I18n.translate('warehouse_not_saved')
       render 'new'
     end
   end
@@ -26,16 +26,16 @@ class WarehousesController < ApplicationController
   def update
     if @warehouse.update(warehouse_params)
       redirect_to warehouse_path(id: @warehouse.id)
-      flash[:notice] = "Galpão atualizado com sucesso"
+      flash[:notice] = I18n.translate('warehouse_updated')
     else
-      flash.now[:notice] = "Não foi possível atualizar galpão"
+      flash.now[:notice] = I18n.translate('warehouse_not_updated')
       render 'edit'
     end
   end
 
   def destroy
     @warehouse.destroy
-    redirect_to root_path, notice: 'Galpão removido com sucesso.'
+    redirect_to root_path, notice: I18n.translate('warehouse_destroyed')
   end
 
   private

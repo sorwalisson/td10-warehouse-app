@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 describe 'usuário cadastra modelo de produto' do
+  it 'Titulo I18n funcionando' do
+    new_user = User.create!(name: "Walisson", email: "sorwalisson@email.com", password: "password")
+
+    login_as(new_user)
+    visit root_path
+    click_on 'Modelos de produtos'
+    click_on 'Registrar modelo de produto'
+
+    within('h2') do
+      expect(page).to have_content('Registrar Modelo de Produto')
+    end
+  end
+
   it 'com sucesso' do
     #arrange
     supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 

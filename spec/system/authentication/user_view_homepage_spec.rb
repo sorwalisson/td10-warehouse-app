@@ -11,6 +11,10 @@ describe "Users visits the homepage" do
 
     # Assert
     expect(page).to have_content('Galpões & Estoque')
+    expect(page).to have_link('Galpões & Estoque', href: root_path)
+    within('h2') do
+      expect(page).to have_content 'Galpões'
+    end
   end
 
 

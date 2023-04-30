@@ -1,19 +1,19 @@
 <section id = "Modelo de produto">
-  <h2>Modelos de produtos</h2>
+  <h2><%= I18n.t('product_models')%></h2>
   <p> <%= link_to 'Registrar modelo de produto', new_product_model_path %> </p>
   <% @product_models.each do |pm| %>
     <div>
       <h3><%= link_to(pm.name, product_model_path(id: pm.id)) %></h3>
       <dl>
-        <dt>SKU:</dt>
+        <dt><%= ProductModel.human_attribute_name(:sku)%></dt>
         <dd><%= pm.sku %></dd>
-        <dt>Fornecedor:</dt>
+        <dt><%= ProductModel.human_attribute_name(:supplier_id)%>:</dt>
         <dd><%= pm.supplier.brand_name %></dt>
       </dl>
     </div>
   <%end%>
 
   <% if @product_models.empty? %>
-    <p> Não há modelos de produtos cadastrados</p>
+    <p><%= I18n.t('no_product_models_on_db')%></p>
   <%end%>
 </section>

@@ -12,14 +12,16 @@
 
   <body>
     <header>
-      <h1>Galpões & Estoque</h1>
+      <%= link_to root_path do %>
+        <h1><%= I18n.t('app_title')%></h1>
+      <%end%>
       <nav>
-        <%= link_to 'Fornecedores', suppliers_path %>
-        <%= link_to 'Modelos de produtos', product_models_path %>
+        <%= link_to I18n.t('suppliers'), suppliers_path %> |
+        <%= link_to I18n.t('product_models'), product_models_path %> |
+        <%= link_to "#{I18n.t('register')} #{Order.model_name.human}", new_order_path %> |
         <% if user_signed_in? %>
-          Olá <%=current_user.name %>
-          <%= current_user.email %>
-          <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+          <%= "#{I18n.t('hello')} #{current_user.description}" %>
+          <%= button_to I18n.t('logoff'), destroy_user_session_path, method: :delete %>
         <% else %> 
           <%= link_to 'Entrar', new_user_session_path %>
         <%end%>

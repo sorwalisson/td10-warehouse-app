@@ -1,2 +1,44 @@
 pt-BR:
-  hello: "Olá Mundo"
+  #general:
+  app_title: "Galpões & Estoque"
+  hello: "Olá"
+  register: "Registrar"
+  record: "Gravar"
+  send: "Enviar"
+  edit: "Editar"
+  delete: "Remover"
+  logoff: "Sair"
+  verify_errors_form: "Verifique os erros abaixo:"
+  #models_pluralize:
+  warehouses: "Galpões"
+  product_models: "Modelos de produtos"
+  suppliers: "Fornecedores"
+  #models_status_messages:
+    #warehouse:
+  warehouse_not_saved: "Galpão não cadastrado"
+  warehouse_saved: "Galpão cadastrado com sucesso"
+  warehouse_updated: "Galpão atualizado com sucesso"
+  warehouse_not_updated: "Não foi possível atualizar galpão"
+  warehouse_destroyed: "Galpão removido com sucesso."
+  no_warehouse_on_db: "Não existem galpões cadastrados"
+    #product_models:
+  product_model_saved: "Modelo de produto cadastrado com sucesso."
+  product_model_not_saved: "Não foi possível cadastrar modelo de produto."
+  no_product_models_on_db: "Não há modelos de produtos cadastrados"
+    #Supplier:
+  supplier_saved: "Fornecedor cadastrado com sucesso."
+  supplier_not_saved: "Fornecedor não cadastrado."
+  supplier_updated: "Fornecedor editado com sucesso."
+  supplier_not_updated: "Fornecedor não editado."
+  supplier_destroyed: "Fornecedor deletado com sucesso."
+  no_supplier_on_db: "Não há forncedores cadastrados"
+    #order
+  order_saved: "Pedido cadastrado com sucesso."
+  order_not_saved: "Não foi possível cadastrar o pedido."
+  #links
+    #general
+  back_root: "Voltar para página principal"
+    #product_models
+  back_product_models_index: "Voltar para Modelos de Produtos"
+    #supplier
+  back_suppliers_index: "Voltar para fornecedores"

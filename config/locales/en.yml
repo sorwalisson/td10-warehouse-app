@@ -1,2 +1,44 @@
 en:
-  hello: "Hello world"
+  #general:
+  app_title: "Warehouse & Stock"
+  hello: "Hello"
+  register: "Register"
+  record: "Record"
+  send: "send"
+  edit: "Edit"
+  delete: "Delete"
+  logoff: "Sair"
+  verify_errors_form: "Verify errors below:"
+  #models_pluralize:
+  warehouses: "Warehouses"
+  product_models: "Products Models"
+  suppliers: "Suppliers"
+  #models_status_messages:
+    #warehouses:
+  warehouse_not_saved: "Warehouse was not saved"
+  warehouse_saved: "Warehouse was saved sucessfully"
+  warehouse_updated: "Warehouse updated sucessfully"
+  warehouse_not_updated: "Warehouse was not updated"
+  warehouse_destroyed: "Warehouse was deleted sucessfully"
+  no_warehouse_on_db: "There is no warehouse saved"
+    #product_models
+  product_model_saved: "Product Model was saved sucessfully."
+  product_model_not_saved: "Product Model was not saved."
+  no_product_models_on_db: "There is no product models saved"
+    #Supplier:
+  supplier_saved: "Supplier saved sucessfully."
+  supplier_not_saved: "Supplier was not saved."
+  supplier_updated: "Supplier updated sucessfully"
+  supplier_not_updated: "Supplier was not updated"
+  supplier_destroyed: "Supplier was deleted sucessfully"
+  no_supplier_on_db: "There is no supplier saved"
+    #order
+  order_saved: "Order saved sucessfully"
+  order_not_saved: "Order was not saved"
+  #links
+    #general
+  back_root: "Back to main page."
+    #product_models
+  back_product_models_index: "Back to Product Models Index"
+    #supplier
+  back_supplier_index: "Back to suppliers index"

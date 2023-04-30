@@ -1,7 +1,7 @@
-<h1>Novo Modelo de Produto</h1>
+<h2><%= I18n.translate("register")%> <%= ProductModel.model_name.human %></h2>
 
 <% if @product_model.errors.any? %>
-  <p>Verifique os erros abaixo: </p>
+  <p><%= I18n.t('verify_erros_form')%>: </p>
   <ul>
     <% @product_model.errors.full_messages.each do |msg| %>
       <li> <%= msg %> </li>

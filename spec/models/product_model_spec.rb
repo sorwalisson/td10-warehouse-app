@@ -105,4 +105,16 @@ RSpec.describe ProductModel, type: :model do
       end
     end        
   end
+
+  describe 'dimensions' do
+    it 'deve retornar uma string com as dimensões' do
+      supplier = Supplier.create!(corporate_name: 'Samsung korea LTDA', brand_name: 'Samsung', registration_number: "123456789000", 
+        full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
+      product_model = ProductModel.new(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10, sku: "TV3222-XM1422-SAMTV1", supplier_id: supplier.id)
+
+      result = product_model.dimensions
+
+      expect(result).to eq "70cm x 45cm x 10cm"
+    end
+  end
 end

@@ -4,4 +4,8 @@ class Supplier < ApplicationRecord
   validates :registration_number, length: {is: 12}
   validates :registration_number, uniqueness: true
   has_many :product_models
+
+  def full_description
+    "#{self.corporate_name} - #{self.brand_name}"
+  end
 end

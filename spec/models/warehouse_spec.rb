@@ -81,4 +81,19 @@ RSpec.describe Warehouse, type: :model do
       end
     end
   end
+
+  describe 'Full description' do
+    it 'exibe nome e código' do
+      #arrange
+      warehouse = Warehouse.create(name: 'Maceió', code: "MCZ", city: "Maceio", area: 50_000, 
+                                   address: "Avenida Zumbi dos Palmares, 50", cep: "57000-000", 
+                                   description: "Galpão do aeroporto zumbi dos palmares")
+      #act
+      result = warehouse.full_description
+
+      #assert
+
+      expect(result).to eq("MCZ - Maceió")
+    end
+  end
 end

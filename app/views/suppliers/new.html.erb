@@ -1,12 +1,11 @@
-<h1>Novo Fornecedor</h1>
+<h1><%= I18n.t('register')%> <%= Supplier.model_name.human %></h1>
 
 <% if @supplier.errors.any? %>
-  <p>Verifique os erros abaixo: </p>
+  <p><%= I18n.t('verify_errors_form')%>:</p>
   <ul>
     <% @supplier.errors.full_messages.each do |msg| %>
       <li> <%= msg %> </li>
-    <%end %>
+    <%end%>
   </ul>
 <% end %>
-
 <%= render 'form' %>

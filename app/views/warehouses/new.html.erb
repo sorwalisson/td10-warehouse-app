@@ -1,7 +1,7 @@
-<h1>Novo Galpão</h1>
+<h1><%= I18n.t('register')%> <%= Warehouse.model_name.human %></h1>
 
 <% if @warehouse.errors.any? %>
-  <p>Verifique os erros abaixo: </p>
+  <p><%= I18n.t('verify_errors_form')%>: </p>
   <ul>
     <% @warehouse.errors.full_messages.each do |msg| %>
       <li> <%= msg %> </li>

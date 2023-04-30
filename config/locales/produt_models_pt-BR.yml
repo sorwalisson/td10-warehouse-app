@@ -11,3 +11,4 @@ pt-BR:
         depth: 'Profundidade'
         sku: 'SKU'
         supplier_id: 'Fornecedor'
+        dimensions: "Dimensões"

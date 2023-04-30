@@ -1,19 +1,19 @@
 <section id = "suppliers">
-  <h2>Fornecedores</h2>
+  <h2><%= Supplier.model_name.human %></h2>
   <p> <%= link_to 'Registrar Fornecedor', new_supplier_path %> </p>
   <% @suppliers.each do |s| %>
     <div>
       <h3><%= link_to(s.corporate_name, supplier_path(id: s.id)) %></h3>
       <dl>
-        <dt>Nome Fantasia:</dt>
+        <dt><%= Supplier.human_attribute_name(:brand_name)%>:</dt>
         <dd><%= s.brand_name %></dd>
-        <dt>CNPJ:</dt>
+        <dt><%= Supplier.human_attribute_name(:registration_number)%>:</dt>
         <dd><%= s.registration_number %></dt>
       </dl>
     </div>
   <%end%>
 
   <% if @suppliers.empty? %>
-    <p> Não há forncedores cadastrados</p>
+    <p><%= I18n.t('no_supplier_on_db')%></p>
   <%end%>
 </section>

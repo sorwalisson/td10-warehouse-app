@@ -1,11 +1,11 @@
-<h1>Modelo de Produto: <%= @product_model.name %> </h1>
+<h1><%= ProductModel.model_name.human %>: <%= @product_model.name %> </h1>
 <div>
-  <strong>Fornecedor: </strong><%= @product_model.supplier.brand_name%>
-  <strong>SKU: </strong><%= @product_model.sku %>
-  <strong>Dimensões: </strong><%= "#{@product_model.width}cm x #{@product_model.height}cm x #{@product_model.depth}cm" %>
-  <strong>Peso: </strong><%= "#{@product_model.weight}g" %>
+  <strong><%= ProductModel.human_attribute_name(:supplier_id) %>: </strong><%= @product_model.supplier.brand_name%>
+  <strong><%= ProductModel.human_attribute_name(:sku) %>: </strong><%= @product_model.sku %>
+  <strong><%= ProductModel.human_attribute_name(:dimensions) %>: </strong><%= @product_model.dimensions %>
+  <strong><%= ProductModel.human_attribute_name(:weight) %>: </strong><%= "#{@product_model.weight}g" %>
 </div>
 
 
-<p><%= link_to "Voltar para Modelos de Produtos", product_models_path %></p>
-<p><%= link_to "Voltar para página principal", root_path %></p>
+<p><%= link_to I18n.t('back_product_models_index'), product_models_path %></p>
+<p><%= link_to I18n.t('back_root'), root_path %></p>

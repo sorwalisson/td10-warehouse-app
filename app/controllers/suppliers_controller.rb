@@ -14,10 +14,10 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.new(supplier_params)
 
     if @supplier.save()
-      flash[:notice] = "Fornecedor cadastrado com sucesso."
+      flash[:notice] = I18n.t('supplier_saved')
       redirect_to suppliers_path
     else
-      flash.now[:notice] = "Fornecedor não cadastrado."
+      flash.now[:notice] = I18n.t('supplier_not_saved')
       render "new"
     end
   end
@@ -30,10 +30,10 @@ class SuppliersController < ApplicationController
     set_supplier
     
     if @supplier.update(supplier_params)
-      flash[:notice] = "Fornecedor editado com sucesso."
+      flash[:notice] = I18n.t('supplier_updated')
       redirect_to supplier_path(id: @supplier.id)
     else
-      flash.now[:notice] = "Fornecedor não editado."
+      flash.now[:notice] = I18n.t('supplier_not_updated')
       render "edit"
     end
   end
@@ -42,7 +42,7 @@ class SuppliersController < ApplicationController
     set_supplier
 
     @supplier.destroy
-    flash[:notice] = "Fornecedor deletado com sucesso."
+    flash[:notice] = I18n.t('supplier_destroyed')
     redirect_to suppliers_path
   end
 

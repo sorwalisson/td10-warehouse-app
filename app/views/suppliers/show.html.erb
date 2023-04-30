@@ -1,15 +1,15 @@
-<h1>Fornecedor <%= @supplier.corporate_name %> </h1>
+<h1><%= Supplier.model_name.human %> <%= @supplier.corporate_name %> </h1>
 <div>
-  <strong>Nome Fantasia: </strong><%= @supplier.brand_name%>
-  <strong>CNPJ: </strong><%= @supplier.registration_number %>
-  <strong>Endereço: </strong><%= @supplier.full_address %>
-  <strong>Cidade: </strong><%= @supplier.city %>
-  <strong>Estado: </strong><%= @supplier.state %>
-  <strong>Email: </strong><%= @supplier.email %>
+  <strong><%= Supplier.human_attribute_name(:brand_name)%>: </strong><%= @supplier.brand_name%>
+  <strong><%= Supplier.human_attribute_name(:registration_number)%>: </strong><%= @supplier.registration_number %>
+  <strong><%= Supplier.human_attribute_name(:full_address)%>: </strong><%= @supplier.full_address %>
+  <strong><%= Supplier.human_attribute_name(:city)%>: </strong><%= @supplier.city %>
+  <strong><%= Supplier.human_attribute_name(:state)%>: </strong><%= @supplier.state %>
+  <strong><%= Supplier.human_attribute_name(:email)%>: </strong><%= @supplier.email %>
 </div>
 
 
-<p><%= link_to 'Editar', edit_supplier_path(id: @supplier.id) %></p>
-<p><%= link_to "Voltar para fornecedores", suppliers_path %></p>
-<p><%= link_to "Voltar para página principal", root_path %></p>
-<p><%= button_to "Remover", supplier_path(id: @supplier.id), method: :delete %></p>
+<p><%= link_to I18n.t('edit'), edit_supplier_path(id: @supplier.id) %></p>
+<p><%= link_to I18n.t('back_suppliers_index'), suppliers_path %></p>
+<p><%= link_to I18n.t('back_root'), root_path %></p>
+<p><%= button_to I18n.t('delete'), supplier_path(id: @supplier.id), method: :delete %></p>

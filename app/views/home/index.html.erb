@@ -1,21 +1,20 @@
 <section id="warehouses">
-  <h2>Galpões</h2>
-  <%= I18n.translate('hello')%>
+  <h2><%= I18n.translate("warehouses") %></h2>
   <p>
     <%= I18n.localize(Date.today) %>
   </p>
   <div>
-    <%= link_to('Cadastrar Galpão', new_warehouse_path)%>
+    <%= link_to("#{I18n.translate("register")} #{Warehouse.model_name.human}", new_warehouse_path)%>
   </div>
   <% @warehouses.each do |w| %>
     <div>
       <h3><%= link_to(w.name, warehouse_path(id: w.id)) %></h3>
       <dl>
-        <dt>Código:</dt>
+        <dt><%= Warehouse.human_attribute_name(:code)%>:</dt>
         <dd><%= w.code %></dd>
-        <dt>Cidade:</dt>
+        <dt><%= Warehouse.human_attribute_name(:city)%>:</dt>
         <dd><%= w.city %></dt>
-        <dt>Área:</dt>
+        <dt><%= Warehouse.human_attribute_name(:area)%>:</dt>
         <dd><%= "#{w.area} m²" %></dd>
       </dl>
     </div>
@@ -23,6 +22,6 @@
 
 
   <% if @warehouses.empty? %>
-    <p>Não existem galpões cadastrados</p>
+    <p><%= I18n.translate("no_warehouse_on_db")%></p>
   <%end%>
 </section>
