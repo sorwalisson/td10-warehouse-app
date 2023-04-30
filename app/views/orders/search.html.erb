@@ -4,7 +4,7 @@
   <p>1 pedido encontrado</p>
   <dl>
     <dt><%= Order.human_attribute_name(:code)%>:</dt>
-    <dd><%= @order.code %></dd>
+    <dd><%= link_to @order.code, order_path(id: @order.id)%></dd>
     <dt><%= Order.human_attribute_name(:warehouse_id)%>:</dt>
     <dd><%= @order.warehouse.full_description %></dd>
     <dt><%= Order.human_attribute_name(:supplier_id)%>:</dt>

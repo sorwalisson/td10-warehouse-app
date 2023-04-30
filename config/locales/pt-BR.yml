@@ -35,6 +35,9 @@ pt-BR:
     #order
   order_saved: "Pedido cadastrado com sucesso."
   order_not_saved: "Não foi possível cadastrar o pedido."
+  order_updated: 'Pedido atualizado com sucesso.'
+  order_not_updated: 'Pedido não atualizado.'
+  order_edit_denied: "Acesso Negado, você não é o usuário que gerou esse pedido"
   #links
     #general
   back_root: "Voltar para página principal"
@@ -42,3 +45,5 @@ pt-BR:
   back_product_models_index: "Voltar para Modelos de Produtos"
     #supplier
   back_suppliers_index: "Voltar para fornecedores"
+    #order
+  back_order_index: "Voltar para todos os pedidos"

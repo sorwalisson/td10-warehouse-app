@@ -35,6 +35,9 @@ en:
     #order
   order_saved: "Order saved sucessfully"
   order_not_saved: "Order was not saved"
+  order_updated: "Order updated sucessfully."
+  order_not_updated: 'Order was not updated'
+  order_edit_denied: "Access Denied, you do not have permission to edit this order"
   #links
     #general
   back_root: "Back to main page."
@@ -42,3 +45,5 @@ en:
   back_product_models_index: "Back to Product Models Index"
     #supplier
   back_supplier_index: "Back to suppliers index"
+    #order
+  back_order_index: "Back to orders index"

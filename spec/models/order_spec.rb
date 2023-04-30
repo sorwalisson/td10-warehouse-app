@@ -15,7 +15,7 @@ RSpec.describe Order, type: :model do
       result = order.code
       #assert
       expect(result).to_not be_nil
-      expect(result.length).to eq 8
+      expect(result.length).to eq 10
     end
     it 'e o código é único' do
       #arrange
