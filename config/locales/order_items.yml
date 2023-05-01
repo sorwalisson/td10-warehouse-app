@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      order_item: 'Itens do Pedido'
+    attributes:
+      order_item:
+        quantity: 'Quantidade'
