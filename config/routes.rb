@@ -3,10 +3,12 @@ Rails.application.routes.draw do
  root to: 'home#index'
 
  resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]
- resources :suppliers
+ resources :suppliers, only: [:new, :create, :show, :edit, :update, :index, :destroy]
  resources :product_models, only: [:index, :show, :new, :create]
  
- resources :orders, only: [:new, :create, :show, :edit, :update] do
+ resources :orders, only: [:new, :create, :show, :edit, :update, :index] do
   get 'search', on: :collection
+  post 'delivered', on: :member
+  post 'canceled', on: :member
  end
 end

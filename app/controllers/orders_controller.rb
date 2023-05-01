@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :check_user_set_order, only: [:show, :edit, :update, :delivered, :canceled]
+  def index
+    @orders = current_user.orders
+  end
+
   def show
-    @order = Order.find_by(id: params[:id])
   end
 
   def new
@@ -25,27 +29,15 @@ class OrdersController < ApplicationController
 
   def search
     @code = params[:query]
-    @order = Order.find_by(code: @code)
+    @orders = Order.where("code LIKE ?", "%#{@code}%")
   end
 
   def edit
-    @order = Order.find_by(id: params[:id])
-    security_check = check_user_order_edit
-    if security_check == false
-      redirect_to root_path, notice: I18n.t('order_edit_denied')
-    end
     @warehouses = Warehouse.all
     @suppliers = Supplier.all
   end
 
   def update
-    @order = Order.find_by(id: params[:id])
-    security_check = check_user_order_edit
-    if security_check == false then 
-      redirect_to root_path, notice: I18n.t('order_edit_denied')
-      return
-    end
-    
     if @order.update(order_params)
       redirect_to @order, notice: I18n.t('order_updated')
     else
@@ -56,13 +48,26 @@ class OrdersController < ApplicationController
     end
   end
 
+  def delivered
+    @order.delivered!
+    redirect_to @order, notice: t(:updated_status)
+  end
+
+  def canceled
+    @order.canceled!
+    redirect_to @order, notice: t(:updated_status)
+  end
   private
   
   def order_params
     params.require(:order).permit(:warehouse_id, :supplier_id, :estimated_delivery_date)
   end
   
-  def check_user_order_edit
-    current_user.id == @order.user_id
+  def check_user_set_order
+    @order = Order.find_by(id: params[:id])
+    if @order.user_id != current_user.id
+      redirect_to root_path, notice: t('order_denied')
+      return
+    end
   end
 end

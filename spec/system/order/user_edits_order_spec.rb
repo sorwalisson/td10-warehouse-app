@@ -82,11 +82,7 @@ describe 'usuario tenta editar pedido' do
     order = Order.create!(user_id: new_user.id, warehouse_id: warehouse.id, supplier_id: supplier.id, estimated_delivery_date: date.strftime("%d/%m/%Y"))
 
     login_as(second_user)
-    visit root_path
-    fill_in 'Buscar Pedido', with: order.code
-    click_on 'Buscar'
-    click_on order.code
-    click_on 'Editar'
+    visit order_path(id: order.id)
 
     expect(page).to have_content "Acesso Negado, você não é o usuário que gerou esse pedido"
     expect(current_path).to eq root_path

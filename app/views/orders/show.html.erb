@@ -8,8 +8,15 @@
   <dd><%= @order.user.description %></dd>
   <dt><%= Order.human_attribute_name(:estimated_delivery_date) %>: </dt>
   <dd><%= I18n.localize(@order.estimated_delivery_date) %></dd>
+  <dt><%= Order.human_attribute_name(:status)%>:</dt>
+  <dd><%= I18n.t(@order.status) %></dd>
 </dl>
-
-<p><%= link_to I18n.t('edit'), edit_order_path(id: @order.id) %></p>
-<p><%= link_to I18n.t('back_order_index'), orders_path %></p>
-<p><%= link_to I18n.t('back_root'), root_path %></p>
+<div>
+  <% if @order.pending? %>
+    <p><%= button_to t(:set_delivered), delivered_order_path(id: @order.id), method: :post %>
+    <p><%= button_to t(:set_canceled), canceled_order_path(id: @order.id), method: :post %>
+  <%end%>
+  <p><%= link_to I18n.t('edit'), edit_order_path(id: @order.id) %></p>
+  <p><%= link_to I18n.t('back_order_index'), orders_path %></p>
+  <p><%= link_to I18n.t('back_root'), root_path %></p>
+</div>

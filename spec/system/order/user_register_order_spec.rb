@@ -51,6 +51,7 @@ describe 'usuario cadastra novo pedido' do
     expect(page).to have_content "ABC12345"
     expect(page).to have_content 'Fornecedor: Samsung korea LTDA - SAMSUNG'
     expect(page).to have_content 'Usuário Responsável: Walisson - sorwalisson@email.com'
+    expect(page).to have_content "Situação do pedido: Pendente"
     expect(page).to_not have_content 'Galpão Maceió'
     expect(page).to have_content "Data Prevista de Entrega: #{data.strftime("%d/%m/%Y")}"
   end

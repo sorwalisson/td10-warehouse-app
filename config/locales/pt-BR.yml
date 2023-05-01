@@ -37,7 +37,11 @@ pt-BR:
   order_not_saved: "Não foi possível cadastrar o pedido."
   order_updated: 'Pedido atualizado com sucesso.'
   order_not_updated: 'Pedido não atualizado.'
-  order_edit_denied: "Acesso Negado, você não é o usuário que gerou esse pedido"
+  order_denied: "Acesso Negado, você não é o usuário que gerou esse pedido"
+  no_order_found: "Nenhum pedido encontrado."
+  number_of_orders: "Número de pedidos encontrados:"
+  updated_status: "Status do Pedido atualizado com sucesso."
+  status_not_updated: "Status do Pedido não foi atualizado, autorização negada!"
   #links
     #general
   back_root: "Voltar para página principal"
@@ -47,3 +51,6 @@ pt-BR:
   back_suppliers_index: "Voltar para fornecedores"
     #order
   back_order_index: "Voltar para todos os pedidos"
+  my_orders: "Meus Pedidos"
+  set_delivered: "Marcar como ENTREGUE"
+  set_canceled: "Marcar como CANCELADO"

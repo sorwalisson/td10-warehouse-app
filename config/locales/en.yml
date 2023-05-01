@@ -37,7 +37,11 @@ en:
   order_not_saved: "Order was not saved"
   order_updated: "Order updated sucessfully."
   order_not_updated: 'Order was not updated'
-  order_edit_denied: "Access Denied, you do not have permission to edit this order"
+  order_denied: "Access Denied, you do not have permission to edit this order"
+  no_order_found: "No order found."
+  number_of_orders: "Number of orders found:"
+  updated_status: "Order Status updated sucessfully."
+  status_not_updated: "Order Status not updated, permission denied."
   #links
     #general
   back_root: "Back to main page."
@@ -47,3 +51,6 @@ en:
   back_supplier_index: "Back to suppliers index"
     #order
   back_order_index: "Back to orders index"
+  my_orders: "My Orders"
+  set_delivered: "Set as DELIVERED"
+  set_canceled: "Set as CANCELED"
