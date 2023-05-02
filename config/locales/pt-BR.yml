@@ -10,6 +10,7 @@ pt-BR:
   logoff: "Sair"
   verify_errors_form: "Verifique os erros abaixo:"
   add_items_to_order: "Adicionar Items ao Pedido:"
+  stock_itens_title: "Itens em Estoque"
   #models_pluralize:
   warehouses: "Galpões"
   product_models: "Modelos de produtos"
@@ -60,3 +61,4 @@ pt-BR:
   set_canceled: "Marcar como CANCELADO"
     #order_item
   add_item: "Adicionar Item"
+

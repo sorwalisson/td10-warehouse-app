@@ -8,8 +8,11 @@ describe 'usuário informa novo status de pedido' do
                                 full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
                                   cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    product = ProductModel.create!(supplier_id: supplier.id, name: "Smart TV 32", weight: 10000, height: 40, width: 30, depth: 30, sku: "STV32S-SAMSUN-LEDTV2")
     date = 1.day.from_now
     order = Order.create!(user_id: new_user.id, warehouse_id: warehouse.id, supplier_id: supplier.id, estimated_delivery_date: date.strftime("%d/%m/%Y"), status: :pending)
+    OrderItem.create!(order_id: order.id, product_model_id: product.id, quantity: 10)
+
     #act
     login_as(new_user)
     visit root_path
@@ -22,6 +25,7 @@ describe 'usuário informa novo status de pedido' do
     expect(page).to have_content("Situação do pedido: Entregue")
     expect(page).to_not have_button('Marcar como ENTREGUE')
     expect(page).to_not have_button('Marcar como CANCELADO')
+    expect(StockProduct.count).to eq 10
   end
 
   it 'e pedido cancelado' do
@@ -31,8 +35,10 @@ describe 'usuário informa novo status de pedido' do
                                 full_address: "Avenida itapuã, 35", city: "São Paulo", state: "SP", email: "samsung@sac.com.br")
     warehouse = Warehouse.create!(name: "Aeroporto SP", code: "GRU", city: "Guarulhos", area: 100_000, address: 'Avenida do Aeroporto, 1000', 
                                   cep: '15000-000', description: 'Galpão destinado a encomendas internacionais.')
+    product = ProductModel.create!(supplier_id: supplier.id, name: "Smart TV 32", weight: 10000, height: 40, width: 30, depth: 30, sku: "STV32S-SAMSUN-LEDTV2")
     date = 1.day.from_now
     order = Order.create!(user_id: new_user.id, warehouse_id: warehouse.id, supplier_id: supplier.id, estimated_delivery_date: date.strftime("%d/%m/%Y"), status: :pending)
+    OrderItem.create!(order_id: order.id, product_model_id: product.id, quantity: 10)
     #act
     login_as(new_user)
     visit root_path
@@ -45,5 +51,6 @@ describe 'usuário informa novo status de pedido' do
     expect(page).to have_content("Situação do pedido: Cancelado")
     expect(page).to_not have_button('Marcar como ENTREGUE')
     expect(page).to_not have_button('Marcar como CANCELADO')
+    expect(StockProduct.count).to eq 0
   end
 end

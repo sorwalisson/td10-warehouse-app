@@ -6,7 +6,12 @@
   <strong><%= Warehouse.human_attribute_name(:address)%>: </strong><%= "#{@warehouse.address} CEP: #{@warehouse.cep}" %>
   <strong><%= Warehouse.human_attribute_name(:description)%>: </strong><%= @warehouse.description %>
 </div>
-
+<div>
+  <h2><%= t(:stock_itens_title) %></h2>
+  <% @stocks.each_pair do |pm, quantity| %>
+    <%= "#{quantity} x #{pm.name}" %>
+  <% end %>
+</div>  
 
 <p><%= link_to I18n.t('edit'), edit_warehouse_path(id: @warehouse.id) %></p>
 <p><%= link_to I18n.t('back_root'), root_path %></p>

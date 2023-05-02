@@ -6,15 +6,13 @@ class Order < ApplicationRecord
   has_many :product_models, through: :order_items
   enum status: {pending: 0, delivered: 5, canceled: 9}
   validates :code, :estimated_delivery_date, presence: true
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
   validate :estimated_delivery_date_is_future
 
   private
 
   def generate_code
-    if self.code.nil?
-      self.code = SecureRandom.alphanumeric(10).upcase
-    end
+    self.code = SecureRandom.alphanumeric(10).upcase
   end
 
   def estimated_delivery_date_is_future

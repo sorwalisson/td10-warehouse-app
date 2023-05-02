@@ -10,6 +10,7 @@ en:
   logoff: "Sair"
   verify_errors_form: "Verify errors below:"
   add_items_to_order: "Adicionar Items ao Pedido: "
+  stock_itens_title: "Itens em Estoque"
   #models_pluralize:
   warehouses: "Warehouses"
   product_models: "Products Models"

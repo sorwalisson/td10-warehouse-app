@@ -50,6 +50,11 @@ class OrdersController < ApplicationController
 
   def delivered
     @order.delivered!
+    @order.order_items.each do |item|
+      item.quantity.times do
+        StockProduct.create(order_id: @order.id, product_model_id: item.product_model_id, warehouse_id: @order.warehouse_id)
+      end
+    end
     redirect_to @order, notice: t(:updated_status)
   end
 
