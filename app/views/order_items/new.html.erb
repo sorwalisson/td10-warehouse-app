@@ -1,0 +1,15 @@
+<h2> <%= "#{t(:add_items_to_order)} #{@order.code}"%> </h2>
+
+<%= form_with(model: [@order, @order_item]) do |f| %>
+  <div>
+    <%= f.label :product_model_id %>
+    <%= f.collection_select :product_model_id, @products, :id, :name %>
+  </div>
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+  <div>
+    <%= f.submit t('record')%>
+  </div>
+<%end%>

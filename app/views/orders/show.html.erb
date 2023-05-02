@@ -12,9 +12,12 @@
   <dd><%= I18n.t(@order.status) %></dd>
 </dl>
 <h2> <%= OrderItem.model_name.human %> </h2>
-  <% @order.order_items.each do |item| %>
-    <%= OrderItem.human_attribute_name(:quantity)%>: <%= item.quantity%> x <%= item.product_model.name %>
-  <%end%>
+<%= link_to t(:add_item), new_order_order_item_path(order_id: @order.id) %>
+
+<% @order.order_items.each do |item| %>
+  <%= OrderItem.human_attribute_name(:quantity)%>: <%= item.quantity%> x <%= item.product_model.name %>
+<%end%>
+
 <div>
   <% if @order.pending? %>
     <p><%= button_to t(:set_delivered), delivered_order_path(id: @order.id), method: :post %>

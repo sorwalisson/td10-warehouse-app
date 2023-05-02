@@ -9,6 +9,7 @@ pt-BR:
   delete: "Remover"
   logoff: "Sair"
   verify_errors_form: "Verifique os erros abaixo:"
+  add_items_to_order: "Adicionar Items ao Pedido:"
   #models_pluralize:
   warehouses: "Galpões"
   product_models: "Modelos de produtos"
@@ -42,6 +43,9 @@ pt-BR:
   number_of_orders: "Número de pedidos encontrados:"
   updated_status: "Status do Pedido atualizado com sucesso."
   status_not_updated: "Status do Pedido não foi atualizado, autorização negada!"
+    #order_items
+  itens_saved: "Os itens foram adicionados com sucesso."
+  itens_not_saved: "Error, itens não salvos, Você não tem permissão para adicionar itens a esse pedido"
   #links
     #general
   back_root: "Voltar para página principal"
@@ -54,3 +58,5 @@ pt-BR:
   my_orders: "Meus Pedidos"
   set_delivered: "Marcar como ENTREGUE"
   set_canceled: "Marcar como CANCELADO"
+    #order_item
+  add_item: "Adicionar Item"

@@ -9,6 +9,7 @@ en:
   delete: "Delete"
   logoff: "Sair"
   verify_errors_form: "Verify errors below:"
+  add_items_to_order: "Adicionar Items ao Pedido: "
   #models_pluralize:
   warehouses: "Warehouses"
   product_models: "Products Models"
@@ -42,6 +43,9 @@ en:
   number_of_orders: "Number of orders found:"
   updated_status: "Order Status updated sucessfully."
   status_not_updated: "Order Status not updated, permission denied."
+    #OrderItems
+  itens_saved: "The Items were added sucessfully."
+  itens_not_saved: "Itens not saved, you are not authorized to add itens to this order."
   #links
     #general
   back_root: "Back to main page."
@@ -54,3 +58,5 @@ en:
   my_orders: "My Orders"
   set_delivered: "Set as DELIVERED"
   set_canceled: "Set as CANCELED"
+    #order_item
+  add_item: "Add Item"

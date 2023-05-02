@@ -5,3 +5,4 @@ pt-BR:
     attributes:
       order_item:
         quantity: 'Quantidade'
+        product_model_id: "Produto"
