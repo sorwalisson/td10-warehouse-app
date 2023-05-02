@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
   def search
     @code = params[:query]
     @orders = Order.where("code LIKE ?", "%#{@code}%")
+    if @orders.count == 1 then redirect_to order_path(id: @orders.first.id) end
   end
 
   def edit

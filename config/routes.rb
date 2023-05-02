@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
  root to: 'home#index'
 
- resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]
+ resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :stock_product_destinations, only: :create
+ end
  resources :suppliers, only: [:new, :create, :show, :edit, :update, :index, :destroy]
  resources :product_models, only: [:index, :show, :new, :create]
  

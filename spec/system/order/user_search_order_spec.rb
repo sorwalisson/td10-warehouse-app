@@ -46,11 +46,8 @@ describe 'Usuário busca por um pedido' do
     click_on 'Buscar'
 
     #assert
-    expect(page).to have_content "Resultado da Busca por: #{order.code}"
-    expect(page).to have_content "Número de pedidos encontrados: 1"
-    expect(page).to have_content "Código do pedido: #{order.code}"
-    expect(page).to have_content "Galpão Destino: GRU - Aeroporto SP"
-    expect(page).to have_content "Fornecedor: Samsung korea LTDA - SAMSUNG"
+    expect(current_path).to eq order_path(id: order.id)
+    expect(page).to have_content(order.code)
   end
 
   it 'encontra multiplos pedidos' do

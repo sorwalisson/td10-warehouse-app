@@ -20,7 +20,6 @@ describe 'usuario tenta editar pedido' do
     visit root_path
     fill_in 'Buscar Pedido', with: order.code
     click_on 'Buscar'
-    click_on order.code
     click_on 'Editar'
 
     expect(page).to have_content 'Editar Pedido'
@@ -50,7 +49,6 @@ describe 'usuario tenta editar pedido' do
     visit root_path
     fill_in 'Buscar Pedido', with: order.code
     click_on 'Buscar'
-    click_on order.code
     click_on 'Editar'
     select second_warehouse.full_description, from: "Galpão Destino"
     select 'LG do Brasil LTDA - LG', from: "Fornecedor"

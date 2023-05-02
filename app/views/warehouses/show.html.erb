@@ -13,6 +13,21 @@
   <% end %>
 </div>  
 
+<div>
+  <h3><%= t(:stock_withdraw)%></h3>
+    <%= form_with(url:  warehouse_stock_product_destinations_path(warehouse_id: @warehouse.id)) do |f| %>
+      <div>
+        <%= f.label :product_model_id, t(:item_withdraw) %>
+        <%= f.collection_select(:product_model_id, @stocks.each_key, :id, :name) %>
+        <%= f.label :recipient, "Destinatário" %>
+        <%= f.text_field :recipient %>
+        <%= f.label :address, "Endereço Destino" %>
+        <%= f.text_field :address %>
+        <%= f.submit t('record') %>
+      </div>
+    <%end%>
+</div>
+
 <p><%= link_to I18n.t('edit'), edit_warehouse_path(id: @warehouse.id) %></p>
 <p><%= link_to I18n.t('back_root'), root_path %></p>
 <p><%= button_to I18n.t('delete'), warehouse_path(id: @warehouse.id), method: :delete %></p>

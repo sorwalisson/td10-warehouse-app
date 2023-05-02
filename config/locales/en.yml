@@ -15,6 +15,8 @@ en:
   warehouses: "Warehouses"
   product_models: "Products Models"
   suppliers: "Suppliers"
+  stock_withdraw: "Stock Withdraw"
+  item_withdraw: "Withdrawing Item"
   #models_status_messages:
     #warehouses:
   warehouse_not_saved: "Warehouse was not saved"
@@ -61,3 +63,5 @@ en:
   set_canceled: "Set as CANCELED"
     #order_item
   add_item: "Add Item"
+    #stock_destination
+  item_has_been_withdraw: "Item has been withdraw"

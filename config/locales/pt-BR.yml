@@ -23,6 +23,8 @@ pt-BR:
   warehouse_not_updated: "Não foi possível atualizar galpão"
   warehouse_destroyed: "Galpão removido com sucesso."
   no_warehouse_on_db: "Não existem galpões cadastrados"
+  stock_withdraw: "Saída de Estoque"
+  item_withdraw: "Item para Saída"
     #product_models:
   product_model_saved: "Modelo de produto cadastrado com sucesso."
   product_model_not_saved: "Não foi possível cadastrar modelo de produto."
@@ -61,4 +63,6 @@ pt-BR:
   set_canceled: "Marcar como CANCELADO"
     #order_item
   add_item: "Adicionar Item"
+    #stock_destinations
+  item_has_been_withdraw: "Item retirado com sucesso."
 
